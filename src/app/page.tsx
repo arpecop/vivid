@@ -11,12 +11,15 @@ export default function HomePage() {
 
       {/* ── JUMBOTRON ──────────────────────────────────── */}
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4 flex items-center gap-4">
-        <div className="shrink-0 w-20 h-20 overflow-hidden rounded-xl">
-          <img
-            src="https://vividhome.eu/wp-content/themes/vividhome-theme/assets/images/VividHome-transparent.png"
-            alt="VividHome"
-            className="w-full h-full object-cover object-left"
-          />
+        <div className="flex items-center gap-3 shrink-0">
+          <div className="w-20 h-20 overflow-hidden rounded-xl">
+            <img
+              src="https://vividhome.eu/wp-content/themes/vividhome-theme/assets/images/VividHome-transparent.png"
+              alt="VividHome"
+              className="w-full h-full object-cover object-left"
+            />
+          </div>
+          <span className="hidden lg:block text-2xl font-black text-[#1A1A1E] dark:text-stone-100 tracking-tight">VividHome</span>
         </div>
         <div className="flex-1 flex justify-center">
           <div className="relative w-full max-w-lg">
@@ -33,10 +36,11 @@ export default function HomePage() {
         <ThemeToggle />
       </div>
       <div
-        className="relative w-full h-[50vh] bg-center bg-auto bg-no-repeat flex items-center"
+        className="relative mx-4 sm:mx-6 lg:mx-8 h-[50vh] bg-center bg-auto bg-no-repeat flex items-center rounded-2xl overflow-hidden"
         style={{ backgroundImage: "url('https://vividhome.eu/wp-content/themes/vividhome-theme/assets/images/hero/hero-1.png')" }}
       >
         <div className="max-w-7xl w-full mx-auto px-4 sm:px-6 lg:px-8">
+          <span className="text-xs font-bold tracking-widest uppercase text-yellow-400 drop-shadow-[0_1px_4px_rgba(0,0,0,0.6)]">Europe's Canvas Studio · Since 2013</span>
           <h1 className="text-3xl sm:text-5xl lg:text-7xl font-black text-white leading-tight drop-shadow-[0_2px_12px_rgba(0,0,0,0.7)]">
             Your Photo, <em className="not-italic gradient-text">Museum-Grade</em> Canvas.<br />
             Made in Sofia, Shipped EU-Wide.
