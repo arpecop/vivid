@@ -6,55 +6,107 @@ import ThemeToggle from "@/components/ThemeToggle";
 
 export default function HomePage() {
   return (
-    <div className="bg-white dark:bg-[#0F0F12] text-[#1A1A1E] dark:text-stone-100 antialiased">
+    <div className="relative text-[#1A1A1E] dark:text-stone-100 antialiased">
+      {/* Unified page glow background */}
+      <div className="fixed inset-0 -z-10 pointer-events-none overflow-hidden page-bg" aria-hidden="true">
+        <div className="absolute -top-32 -left-32 w-96 h-96 rounded-full opacity-30"
+          style={{ background: "radial-gradient(circle,#7B2D8E,transparent 70%)", filter: "blur(80px)" }} />
+        <div className="absolute top-1/3 -right-40 w-[28rem] h-[28rem] rounded-full opacity-30"
+          style={{ background: "radial-gradient(circle,#00B4E8,transparent 70%)", filter: "blur(80px)" }} />
+        <div className="absolute -bottom-40 left-1/4 w-[26rem] h-[26rem] rounded-full opacity-25"
+          style={{ background: "radial-gradient(circle,#D41B6B,transparent 70%)", filter: "blur(80px)" }} />
+      </div>
       <PromoBar />
 
       {/* ── JUMBOTRON ──────────────────────────────────── */}
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4 flex items-center gap-4">
-        <div className="flex items-center gap-3 shrink-0">
-          <div className="w-20 h-20 overflow-hidden rounded-xl">
-            <img
-              src="https://vividhome.eu/wp-content/themes/vividhome-theme/assets/images/VividHome-transparent.png"
-              alt="VividHome"
-              className="w-full h-full object-cover object-left"
-            />
-          </div>
-          <span className="hidden lg:block text-2xl font-black text-[#1A1A1E] dark:text-stone-100 tracking-tight">VividHome</span>
-        </div>
-        <div className="flex-1 flex justify-center">
-          <div className="relative w-full max-w-lg">
-            <svg className="absolute left-4 top-1/2 -translate-y-1/2 w-4 h-4 text-stone-400" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-              <circle cx="11" cy="11" r="8" /><line x1="21" y1="21" x2="16.65" y2="16.65" />
-            </svg>
-            <input
-              type="search"
-              placeholder="Search prints, styles, rooms…"
-              className="w-full pl-10 pr-4 py-2.5 rounded-full border border-stone-200 dark:border-stone-700 bg-white dark:bg-stone-800/50 text-sm text-[#1A1A1E] dark:text-stone-100 placeholder-stone-400 focus:outline-none focus:ring-2 focus:ring-[#7B2D8E]/40"
-            />
-          </div>
-        </div>
-        <ThemeToggle />
-      </div>
       <div
-        className="relative mx-4 sm:mx-6 lg:mx-8 h-[50vh] bg-center bg-auto bg-no-repeat flex items-center rounded-2xl overflow-hidden"
+        className="relative w-full min-h-[50vh] py-16 sm:py-20 lg:py-28 bg-center bg-auto bg-no-repeat flex items-center overflow-hidden"
         style={{ backgroundImage: "url('https://vividhome.eu/wp-content/themes/vividhome-theme/assets/images/hero/hero-1.png')" }}
       >
-        <div className="max-w-7xl w-full mx-auto px-4 sm:px-6 lg:px-8">
-          <span className="text-xs font-bold tracking-widest uppercase text-yellow-400 drop-shadow-[0_1px_4px_rgba(0,0,0,0.6)]">Europe's Canvas Studio · Since 2013</span>
-          <h1 className="text-3xl sm:text-5xl lg:text-7xl font-black text-white leading-tight drop-shadow-[0_2px_12px_rgba(0,0,0,0.7)]">
-            Your Photo, <em className="not-italic gradient-text">Museum-Grade</em> Canvas.<br />
-            Made in Sofia, Shipped EU-Wide.
-          </h1>
+        {/* Header - Absolute positioned */}
+        <div className="absolute top-0 left-0 right-0 w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4 flex items-center gap-4">
+          <div className="flex items-center gap-3 shrink-0">
+            <div className="w-20 h-20 overflow-hidden rounded-xl">
+              <img
+                src="https://vividhome.eu/wp-content/themes/vividhome-theme/assets/images/VividHome-transparent.png"
+                alt="VividHome"
+                className="w-full h-full object-cover object-left"
+              />
+            </div>
+            <div className="hidden lg:flex flex-col">
+              <span className="text-2xl font-black text-stone-100 tracking-tight">VividHome</span>
+              <span className="text-[10px] font-bold text-stone-200 tracking-widest uppercase">Europe's Canvas Studio · Since 2013</span>
+            </div>
+          </div>
+          <div className="flex-1 flex justify-center">
+            <div className="relative w-full max-w-lg">
+              <svg className="absolute left-4 top-1/2 -translate-y-1/2 w-4 h-4 text-stone-400" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                <circle cx="11" cy="11" r="8" /><line x1="21" y1="21" x2="16.65" y2="16.65" />
+              </svg>
+              <input
+                type="search"
+                placeholder="Search prints, styles, rooms…"
+                className="w-full pl-10 pr-4 py-2.5 rounded-full border border-stone-200/50 dark:border-stone-700/50 bg-white/70 dark:bg-stone-900/60 backdrop-blur-md text-sm text-[#1A1A1E] dark:text-stone-100 placeholder-stone-400/70 focus:outline-none focus:ring-2 focus:ring-[#7B2D8E]/40"
+              />
+            </div>
+          </div>
+          <ThemeToggle />
         </div>
+        <div className="max-w-7xl w-full mx-auto px-4 sm:px-6 lg:px-8 flex flex-col lg:flex-row lg:items-center lg:justify-between gap-6 lg:gap-8">
+          <div className="flex-1">
+            <h1 className="text-3xl sm:text-5xl lg:text-7xl font-black text-stone-200 leading-tight drop-shadow-[0_2px_12px_rgba(0,0,0,0.7)]">
+              Your Photo, Canvas.<br />
+              <em className="not-italic gradient-text-fixed">Museum-Grade</em><br />
+              Made in Sofia<br />Shipped EU-Wide.
+            </h1>
+          </div>
+          <div className="flex flex-row lg:flex-col gap-3 shrink-0">
+            <a href="https://vividhome.eu/canvas-prints/" className="inline-flex items-center justify-center px-5 py-2.5 rounded-lg bg-white/70 dark:bg-white/10 backdrop-blur-md text-[#1A1A1E] dark:text-white font-semibold text-sm transition-all hover:bg-white/80 dark:hover:bg-white/15">
+              Canvas Prints
+            </a>
+            <a href="/wallpapers" className="inline-flex items-center justify-center px-5 py-2.5 rounded-lg bg-white/70 dark:bg-white/10 backdrop-blur-md text-[#1A1A1E] dark:text-white font-semibold text-sm transition-all hover:bg-white/80 dark:hover:bg-white/15">
+              Wallpapers
+            </a>
+            <a href="https://vividhome.eu/shop/" className="inline-flex items-center justify-center px-5 py-2.5 rounded-lg bg-white/70 dark:bg-white/10 backdrop-blur-md text-[#1A1A1E] dark:text-white font-semibold text-sm transition-all hover:bg-white/80 dark:hover:bg-white/15">
+              🔥 On Sale
+            </a>
+          </div>
+        </div>
+        <p className="absolute bottom-0 right-0 text-xs font-bold text-stone-200 px-5 py-3 bg-[#1A1A1E]/95 rounded-tl-2xl">From €12.90 · 100% cotton or polyester · 14-day refund · Free EU shipping over €99</p>
       </div>
 
+      {/* ── TRUST BADGES ───────────────────────────────── */}
+      <section className="py-8 sm:py-12 border-b border-stone-200 dark:border-stone-800">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="grid grid-cols-2 sm:grid-cols-4 gap-6 sm:gap-8">
+            {[
+              { icon: <><rect x="1" y="3" width="15" height="13" /><polygon points="16 8 20 8 23 11 23 16 16 16 16 8" /><circle cx="5.5" cy="18.5" r="2.5" /><circle cx="18.5" cy="18.5" r="2.5" /></>, title: "Free EU Delivery", desc: "€99+" },
+              { icon: <><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" /><polyline points="9 12 11 14 15 10" /></>, title: "14-Day Refund", desc: "Hassle-free returns" },
+              { icon: <><rect x="2" y="4" width="20" height="16" rx="2" /><line x1="2" y1="8" x2="22" y2="8" /><line x1="6" y1="12" x2="6" y2="14" /></>, title: "Secure Payment", desc: "Visa · Mastercard · PayPal" },
+              { icon: <><path d="M2 7l10-4 10 4M2 7v10c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V7M2 7l10 4 10-4" /><line x1="12" y1="11" x2="12" y2="21" /></>, title: "Custom Sizes", desc: "Made to fit your wall" },
+            ].map((item) => (
+              <div key={item.title} className="flex flex-col items-center text-center">
+                <div className="w-12 h-12 rounded-xl flex items-center justify-center mb-3 bg-[#7B2D8E]/10 dark:bg-[#7B2D8E]/20">
+                  <svg className="w-6 h-6 text-[#7B2D8E]" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
+                    {item.icon}
+                  </svg>
+                </div>
+                <h3 className="text-sm font-bold text-[#1A1A1E] dark:text-stone-100 mb-1">{item.title}</h3>
+                <p className="text-xs text-[#6B6860] dark:text-stone-400">{item.desc}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
       {/* ── HERO — CATEGORY PANELS ─────────────────────── */}
-      <section className="py-10 sm:py-14 bg-[#F5F5F3] dark:bg-[#111118]">
+      <section className="py-10 sm:py-14">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid md:grid-cols-2 gap-6">
 
             {/* Canvas Prints Panel */}
-            <div className="group relative bg-white dark:bg-[#1a1a20] rounded-3xl overflow-hidden shadow-sm border border-stone-100 dark:border-stone-700/40 card-lift cursor-pointer">
+            <div className="p-[3px] rounded-3xl card-lift" style={{ background: "linear-gradient(135deg,#1B3A8C,#7B2D8E,#D41B6B)" }}>
+            <div className="group relative bg-white dark:bg-[#1a1a20] rounded-[calc(1.5rem-3px)] overflow-hidden cursor-pointer">
               <div className="relative h-72 sm:h-80 overflow-hidden">
                 <img
                   src="https://vividhome.eu/wp-content/uploads/2026/04/1-10-3000x3000-13-scaled-600x600.jpg"
@@ -88,9 +140,11 @@ export default function HomePage() {
                 </a>
               </div>
             </div>
+            </div>
 
             {/* Wallpapers Panel */}
-            <div className="group relative bg-white dark:bg-[#1a1a20] rounded-3xl overflow-hidden shadow-sm border border-stone-100 dark:border-stone-700/40 card-lift cursor-pointer">
+            <div className="p-[3px] rounded-3xl card-lift" style={{ background: "linear-gradient(135deg,#1B3A8C,#7B2D8E,#D41B6B)" }}>
+            <div className="group relative bg-white dark:bg-[#1a1a20] rounded-[calc(1.5rem-3px)] overflow-hidden cursor-pointer">
               <div className="relative h-72 sm:h-80 overflow-hidden">
                 <img
                   src="https://vividhome.eu/wp-content/themes/vividhome-theme/assets/img/wallpaper-textures/hp-pvc-free.webp"
@@ -113,16 +167,17 @@ export default function HomePage() {
                 <h2 className="text-2xl sm:text-3xl font-bold text-[#1A1A1E] dark:text-stone-100 mb-2 leading-tight">Wallpapers</h2>
                 <p className="text-[#6B6860] dark:text-stone-400 text-sm leading-relaxed mb-5">Custom wall murals on 12 fleece textures. FSC-certified, PVC-free, made-to-measure for your wall.</p>
                 <a
-                  href="https://vividhome.eu/wallpapers/"
+                  href="/wallpapers"
                   className="inline-flex items-center justify-center gap-2.5 w-full py-4 rounded-2xl text-white font-bold text-base transition-all duration-200 hover:-translate-y-0.5 hover:shadow-xl"
                   style={{ background: "linear-gradient(95deg,#1e3a8a 0%,#2563eb 35%,#7c3aed 70%,#9333ea 100%)" }}
                 >
-                  Notify Me at Launch
+                  Shop Wallpapers
                   <svg className="w-4 h-4" viewBox="0 0 16 16" fill="none" stroke="currentColor" strokeWidth="2.5">
                     <line x1="3" y1="8" x2="13" y2="8" /><polyline points="9 4 13 8 9 12" />
                   </svg>
                 </a>
               </div>
+            </div>
             </div>
 
           </div>
@@ -130,7 +185,7 @@ export default function HomePage() {
       </section>
 
       {/* ── CANVAS PRINTS BROWSE SECTION ───────────────── */}
-      <section className="py-14 bg-white dark:bg-[#0F0F12] border-b border-stone-100 dark:border-stone-800" id="canvas-browse">
+      <section className="py-14 border-b border-stone-100 dark:border-stone-800" id="canvas-browse">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="mb-8">
             <span className="block text-xs font-bold tracking-widest uppercase text-[#7B2D8E] mb-2">Canvas Prints</span>
@@ -207,7 +262,7 @@ export default function HomePage() {
       </section>
 
       {/* ── HOW IT WORKS ───────────────────────────────── */}
-      <section className="py-20 bg-white dark:bg-[#0F0F12]" id="how-it-works">
+      <section className="py-20" id="how-it-works">
         <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
             <span className="inline-block text-xs font-bold tracking-widest uppercase text-[#7B2D8E] mb-3">Simple Process</span>
@@ -244,7 +299,7 @@ export default function HomePage() {
       </section>
 
       {/* ── FEATURED PRODUCTS ──────────────────────────── */}
-      <section className="py-20 bg-[#F5F5F3] dark:bg-[#111118]" id="featured">
+      <section className="py-20" id="featured">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex items-end justify-between mb-10 flex-wrap gap-4">
             <div>
@@ -263,13 +318,13 @@ export default function HomePage() {
 
           <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-4 sm:gap-5">
             {[
-              { href: "https://vividhome.eu/p/songbird-rose-sonata-vintage-botanical-canvas/", img: "https://vividhome.eu/wp-content/uploads/2026/04/1-10-3000x3000-13-scaled-600x600.jpg", cat: "Animals & Wildlife · Canvas", name: "Songbird & Rose Sonata", price: "from 13,90 €", priceColor: "text-[#1B3A8C]", sale: false },
-              { href: "https://vividhome.eu/p/the-long-shadow-silhouette-watercolor-canvas-print/", img: "https://vividhome.eu/wp-content/uploads/2026/04/3-10-3000x3000-11-scaled-600x600.jpg", cat: "Abstract · Canvas", name: "The Long Shadow", price: "from 13,90 €", priceColor: "text-[#1B3A8C]", sale: false },
-              { href: "https://vividhome.eu/p/radiant-burst-abstract-expressionist-canvas-print/", img: "https://vividhome.eu/wp-content/uploads/2026/04/2-10-3000x3000-12-scaled-600x600.jpg", cat: "Abstract · Canvas", name: "Radiant Burst", price: "from 13,90 €", priceColor: "text-[#1B3A8C]", sale: false },
-              { href: "https://vividhome.eu/p/red-node-convergence-abstract-digital-canvas-print/", img: "https://vividhome.eu/wp-content/uploads/2026/04/1-10-3000x3000-12-scaled-600x600.jpg", cat: "Abstract · Canvas", name: "Red Node Convergence", price: "from 13,90 €", priceColor: "text-[#1B3A8C]", sale: false },
-              { href: "https://vividhome.eu/p/cartographic-mind-portrait-mixed-media-canvas-print/", img: "https://vividhome.eu/wp-content/uploads/2026/04/13-10-3000x3000-7-scaled-600x600.jpg", cat: "Portrait & Figure · Canvas", name: "Cartographic Mind", price: "from 13,90 €", priceColor: "text-[#1B3A8C]", sale: false },
-              { href: "https://vividhome.eu/p/crimson-unmasked-portrait-collage-digital-art-canvas/", img: "https://vividhome.eu/wp-content/uploads/2026/04/12-10-3000x3000-7-scaled-600x600.jpg", cat: "Abstract · Canvas", name: "Crimson Unmasked", price: "from 13,90 €", priceColor: "text-[#1B3A8C]", sale: false },
-              { href: "https://vividhome.eu/p/cobalt-poppy-quartet-floral-illustration-canvas-print/", img: "https://vividhome.eu/wp-content/uploads/2026/04/7-10-3000x3000-8-scaled-600x600.jpg", cat: "Botanical & Floral · Canvas", name: "Cobalt Poppy Quartet", price: "from 13,90 €", priceColor: "text-[#1B3A8C]", sale: false },
+              { href: "https://vividhome.eu/p/songbird-rose-sonata-vintage-botanical-canvas/", img: "https://vividhome.eu/wp-content/uploads/2026/04/1-10-3000x3000-13-scaled-600x600.jpg", cat: "Animals & Wildlife · Canvas", name: "Songbird & Rose Sonata", price: "from 13,90 €", priceColor: "text-[#1B3A8C] dark:text-white", sale: false },
+              { href: "https://vividhome.eu/p/the-long-shadow-silhouette-watercolor-canvas-print/", img: "https://vividhome.eu/wp-content/uploads/2026/04/3-10-3000x3000-11-scaled-600x600.jpg", cat: "Abstract · Canvas", name: "The Long Shadow", price: "from 13,90 €", priceColor: "text-[#1B3A8C] dark:text-white", sale: false },
+              { href: "https://vividhome.eu/p/radiant-burst-abstract-expressionist-canvas-print/", img: "https://vividhome.eu/wp-content/uploads/2026/04/2-10-3000x3000-12-scaled-600x600.jpg", cat: "Abstract · Canvas", name: "Radiant Burst", price: "from 13,90 €", priceColor: "text-[#1B3A8C] dark:text-white", sale: false },
+              { href: "https://vividhome.eu/p/red-node-convergence-abstract-digital-canvas-print/", img: "https://vividhome.eu/wp-content/uploads/2026/04/1-10-3000x3000-12-scaled-600x600.jpg", cat: "Abstract · Canvas", name: "Red Node Convergence", price: "from 13,90 €", priceColor: "text-[#1B3A8C] dark:text-white", sale: false },
+              { href: "https://vividhome.eu/p/cartographic-mind-portrait-mixed-media-canvas-print/", img: "https://vividhome.eu/wp-content/uploads/2026/04/13-10-3000x3000-7-scaled-600x600.jpg", cat: "Portrait & Figure · Canvas", name: "Cartographic Mind", price: "from 13,90 €", priceColor: "text-[#1B3A8C] dark:text-white", sale: false },
+              { href: "https://vividhome.eu/p/crimson-unmasked-portrait-collage-digital-art-canvas/", img: "https://vividhome.eu/wp-content/uploads/2026/04/12-10-3000x3000-7-scaled-600x600.jpg", cat: "Abstract · Canvas", name: "Crimson Unmasked", price: "from 13,90 €", priceColor: "text-[#1B3A8C] dark:text-white", sale: false },
+              { href: "https://vividhome.eu/p/cobalt-poppy-quartet-floral-illustration-canvas-print/", img: "https://vividhome.eu/wp-content/uploads/2026/04/7-10-3000x3000-8-scaled-600x600.jpg", cat: "Botanical & Floral · Canvas", name: "Cobalt Poppy Quartet", price: "from 13,90 €", priceColor: "text-[#1B3A8C] dark:text-white", sale: false },
               { href: "https://vividhome.eu/p/bold-stripes-amber-light-portrait-photography-canvas/", img: "https://vividhome.eu/wp-content/uploads/2026/04/18-10-3000x3000-6-scaled-600x600.jpg", cat: "Photography · Canvas", name: "Bold Stripes, Amber Light", price: "from 10,43 €", priceColor: "text-[#D41B6B]", sale: true },
             ].map((p) => (
               <div key={p.href} className="group bg-white dark:bg-[#1a1a20] rounded-2xl overflow-hidden shadow-sm border border-stone-100 dark:border-stone-700/40 card-lift relative">
@@ -318,7 +373,7 @@ export default function HomePage() {
       </section>
 
       {/* ── MATERIALS SHOWCASE ─────────────────────────── */}
-      <section className="py-20 bg-white dark:bg-[#0F0F12]" id="materials">
+      <section className="py-20" id="materials">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-12">
             <span className="block text-xs font-bold tracking-widest uppercase text-[#7B2D8E] mb-3">Materials &amp; Quality</span>
@@ -518,11 +573,7 @@ export default function HomePage() {
       </section>
 
       {/* ── REVIEWS ────────────────────────────────────── */}
-      <section className="py-20 relative overflow-hidden reviews-section" id="reviews">
-        <div className="absolute -top-32 -left-32 w-96 h-96 rounded-full pointer-events-none opacity-30"
-          style={{ background: "radial-gradient(circle,#7B2D8E,transparent 70%)", filter: "blur(80px)" }} />
-        <div className="absolute -bottom-32 -right-32 w-[28rem] h-[28rem] rounded-full pointer-events-none opacity-30"
-          style={{ background: "radial-gradient(circle,#00B4E8,transparent 70%)", filter: "blur(80px)" }} />
+      <section className="py-20 relative overflow-hidden" id="reviews">
         <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 relative">
           <div className="text-center mb-10">
             <span className="inline-block text-xs font-bold tracking-widest uppercase mb-3"
@@ -568,7 +619,7 @@ export default function HomePage() {
       </section>
 
       {/* ── SHIPPING / EU DELIVERY ─────────────────────── */}
-      <section className="py-20 bg-white dark:bg-[#0F0F12]" id="shipping">
+      <section className="py-20" id="shipping">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid lg:grid-cols-2 gap-12 items-center">
             <div className="flex justify-center">
@@ -658,11 +709,11 @@ export default function HomePage() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative">
           <div className="grid lg:grid-cols-2 gap-12 items-center">
             <div>
-              <h2 className="text-4xl sm:text-5xl font-black text-white mb-4 leading-tight">
+              <h2 className="text-4xl sm:text-5xl font-black text-stone-200 mb-4 leading-tight">
                 Transform<br />Your{" "}
                 <em className="not-italic" style={{ background: "linear-gradient(90deg,#FDE68A,#FCA5A5)", WebkitBackgroundClip: "text", WebkitTextFillColor: "transparent", backgroundClip: "text" }}>Space</em>
               </h2>
-              <p className="text-white/75 text-base leading-relaxed mb-8 max-w-md">Premium canvas prints and custom wallpapers, handcrafted in Bulgaria and delivered across Europe.</p>
+              <p className="text-stone-200/75 text-base leading-relaxed mb-8 max-w-md">Premium canvas prints and custom wallpapers, handcrafted in Bulgaria and delivered across Europe.</p>
               <div className="flex flex-wrap gap-3">
                 <a href="https://vividhome.eu/shop/" className="inline-flex items-center gap-2 px-7 py-3.5 rounded-full bg-white text-[#1B3A8C] font-bold shadow-xl hover:-translate-y-0.5 hover:shadow-2xl transition-all duration-200">
                   Shop Now
@@ -670,17 +721,17 @@ export default function HomePage() {
                     <line x1="3" y1="8" x2="13" y2="8" /><polyline points="9 4 13 8 9 12" />
                   </svg>
                 </a>
-                <a href="https://vividhome.eu/about/" className="inline-flex items-center gap-2 px-7 py-3.5 rounded-full border border-white/30 text-white font-semibold hover:bg-white/10 transition-colors">
+                <a href="https://vividhome.eu/about/" className="inline-flex items-center gap-2 px-7 py-3.5 rounded-full border border-stone-200/30 text-stone-200 font-semibold hover:bg-stone-200/10 transition-colors">
                   Our Story
                 </a>
               </div>
             </div>
-            <div className="bg-white/10 backdrop-blur-sm border border-white/20 rounded-3xl p-8">
+            <div className="bg-stone-200/10 backdrop-blur-sm border border-stone-200/20 rounded-3xl p-8">
               <span className="inline-block text-xs font-bold uppercase tracking-widest text-yellow-300 mb-3">Exclusive Offer</span>
-              <h3 className="text-2xl font-bold text-white mb-2">Get 10% Off Your First Order</h3>
-              <p className="text-white/70 text-sm leading-relaxed mb-6">Get €10 off orders over €99 — early access to new collections and styling tips. Unsubscribe anytime.</p>
+              <h3 className="text-2xl font-bold text-stone-200 mb-2">Get 10% Off Your First Order</h3>
+              <p className="text-stone-200/70 text-sm leading-relaxed mb-6">Get €10 off orders over €99 — early access to new collections and styling tips. Unsubscribe anytime.</p>
               <NewsletterForm />
-              <p className="text-white/50 text-xs mt-3 flex items-center gap-1.5">
+              <p className="text-stone-200/50 text-xs mt-3 flex items-center gap-1.5">
                 <svg className="w-3 h-3 shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
                   <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" />
                 </svg>

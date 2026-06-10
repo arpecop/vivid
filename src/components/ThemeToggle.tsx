@@ -18,7 +18,7 @@ export default function ThemeToggle() {
   return (
     <button
       onClick={toggle}
-      className="flex items-center justify-center w-9 h-9 rounded-full hover:bg-stone-100 dark:hover:bg-stone-800 transition-colors"
+      className="flex items-center justify-center w-9 h-9 rounded-full bg-white/70 dark:bg-stone-900/60 border border-stone-200/50 dark:border-stone-700/50 backdrop-blur-md hover:bg-white/80 dark:hover:bg-stone-900/70 transition-colors"
       aria-label={dark ? "Switch to light mode" : "Switch to dark mode"}
       suppressHydrationWarning
     >

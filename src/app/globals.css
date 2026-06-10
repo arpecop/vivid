@@ -68,9 +68,27 @@ html.dark .gradient-border {
 .card-lift { transition: transform 0.3s ease, box-shadow 0.3s ease; }
 .card-lift:hover { transform: translateY(-6px); box-shadow: 0 30px 70px rgba(15,23,42,0.14); }
 
+/* Dark mode: plain white instead of gradient for text sitting on dark backgrounds */
+html.dark .gradient-text {
+  background: none;
+  -webkit-text-fill-color: white;
+  color: white;
+}
+
+/* Keep the gradient in both light & dark (for text on permanently dark backgrounds) */
+.gradient-text-fixed,
+html.dark .gradient-text-fixed {
+  background: linear-gradient(135deg, #1B3A8C 0%, #7B2D8E 50%, #D41B6B 100%);
+  -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;
+  color: transparent;
+}
+
 /* Reviews section background */
-.reviews-section { background: linear-gradient(180deg,#FBFAF7 0%,#F5F0FF 50%,#FFF0F6 100%); }
-html.dark .reviews-section { background: linear-gradient(180deg,#0F0F12 0%,#12101a 50%,#130f12 100%); }
+.reviews-section { background: transparent; }
+
+/* Unified page background — same soft gradient + glow as the reviews block */
+.page-bg { background: linear-gradient(180deg,#FBFAF7 0%,#F5F0FF 50%,#FFF0F6 100%); }
+html.dark .page-bg { background: linear-gradient(180deg,#0F0F12 0%,#12101a 50%,#130f12 100%); }
 
 /* EU map */
 .eu-country   { fill: #E8E6F0; stroke: white; stroke-width: 1.5; }

@@ -64,7 +64,7 @@ export default function TrendingSlider() {
               />
             </div>
             <div className="text-xs font-medium text-[#2D2B28] dark:text-stone-200 line-clamp-2 leading-snug mb-0.5">{p.name}</div>
-            <div className="text-xs font-bold text-[#1B3A8C]">
+            <div className="text-xs font-bold text-[#1B3A8C] dark:text-white">
               <span className="text-[10px] font-normal text-stone-400">from </span>13,90 €
             </div>
           </a>

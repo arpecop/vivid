@@ -34,28 +34,28 @@ export default function CanvasPrintsPage() {
         <div className="absolute inset-0 pointer-events-none opacity-20"
           style={{ background: "radial-gradient(ellipse at 50% 120%,#E8632A,transparent 60%)" }} />
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20 relative text-center">
-          <span className="inline-block text-xs font-bold uppercase tracking-widest px-4 py-1.5 rounded-full mb-5 text-white/70"
-            style={{ background: "rgba(255,255,255,0.08)", border: "1px solid rgba(255,255,255,0.1)" }}>
+          <span className="inline-block text-xs font-bold uppercase tracking-widest px-4 py-1.5 rounded-full mb-5 text-stone-200/70"
+            style={{ background: "rgba(226,232,240,0.08)", border: "1px solid rgba(226,232,240,0.1)" }}>
             Premium Quality · Gallery-Grade
           </span>
-          <h1 className="text-4xl sm:text-5xl lg:text-6xl font-black text-white mb-5 leading-tight font-heading">
+          <h1 className="text-4xl sm:text-5xl lg:text-6xl font-black text-stone-200 mb-5 leading-tight font-heading">
             Canvas Prints<br />
             <span style={{ background: "linear-gradient(90deg,#FDE68A,#FCA5A5,#C4B5FD)", WebkitBackgroundClip: "text", WebkitTextFillColor: "transparent", backgroundClip: "text" }}>
               That Tell Your Story
             </span>
           </h1>
-          <p className="text-white/60 text-base max-w-xl mx-auto mb-8 leading-relaxed">
+          <p className="text-stone-200/60 text-base max-w-xl mx-auto mb-8 leading-relaxed">
             Museum-grade canvas. UV-resistant inks. Delivered across the EU in 2–5 business days.
           </p>
           <div className="flex flex-wrap gap-3 justify-center">
-            <a href="#products" className="inline-flex items-center gap-2 px-7 py-3.5 rounded-full text-white font-bold shadow-xl hover:-translate-y-0.5 transition-all"
+            <a href="#products" className="inline-flex items-center gap-2 px-7 py-3.5 rounded-full text-stone-200 font-bold shadow-xl hover:-translate-y-0.5 transition-all"
               style={{ background: "linear-gradient(90deg,#E8632A,#D41B6B)" }}>
               Browse Collection
               <svg className="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
                 <line x1="5" y1="12" x2="19" y2="12" /><polyline points="12 5 19 12 12 19" />
               </svg>
             </a>
-            <a href="https://vividhome.eu/contact/" className="inline-flex items-center gap-2 px-7 py-3.5 rounded-full border border-white/20 text-white font-semibold hover:bg-white/10 transition-colors">
+            <a href="https://vividhome.eu/contact/" className="inline-flex items-center gap-2 px-7 py-3.5 rounded-full border border-stone-200/20 text-stone-200 font-semibold hover:bg-stone-200/10 transition-colors">
               Custom Order
             </a>
           </div>
@@ -63,8 +63,8 @@ export default function CanvasPrintsPage() {
           <div className="flex flex-wrap justify-center gap-8 mt-12">
             {[["200+", "Designs"], ["3", "Canvas Types"], ["27 EU", "Countries"], ["2–5 days", "Delivery"]].map(([val, label]) => (
               <div key={label} className="text-center">
-                <div className="text-2xl font-black text-white">{val}</div>
-                <div className="text-xs text-white/50 mt-0.5">{label}</div>
+                <div className="text-2xl font-black text-stone-200">{val}</div>
+                <div className="text-xs text-stone-200/50 mt-0.5">{label}</div>
               </div>
             ))}
           </div>
@@ -119,7 +119,7 @@ export default function CanvasPrintsPage() {
 
             {/* Custom Order sidebar */}
             <div className="hidden lg:flex flex-col gap-4">
-              <div className="rounded-2xl p-5 text-white relative overflow-hidden" style={{ background: "linear-gradient(135deg,#1B3A8C 0%,#7B2D8E 60%,#D41B6B 100%)" }}>
+              <div className="rounded-2xl p-5 text-stone-200 relative overflow-hidden" style={{ background: "linear-gradient(135deg,#1B3A8C 0%,#7B2D8E 60%,#D41B6B 100%)" }}>
                 <div className="absolute inset-0 opacity-10" style={{ background: "radial-gradient(circle at 30% 70%,white,transparent 70%)" }} />
                 <div className="relative">
                   <span className="text-[10px] font-bold uppercase tracking-widest opacity-70 mb-2 block">Service</span>
@@ -150,7 +150,7 @@ export default function CanvasPrintsPage() {
               {/* Shipping badge */}
               <div className="rounded-2xl border border-stone-100 dark:border-stone-700/40 bg-white dark:bg-[#1a1a20] p-4 text-center">
                 <div className="w-10 h-10 rounded-xl flex items-center justify-center mx-auto mb-2" style={{ background: "linear-gradient(135deg,#1B3A8C,#7B2D8E)" }}>
-                  <svg className="w-5 h-5 text-white" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
+                  <svg className="w-5 h-5 text-stone-200" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
                     <rect x="1" y="3" width="15" height="13" /><polygon points="16 8 20 8 23 11 23 16 16 16 16 8" /><circle cx="5.5" cy="18.5" r="2.5" /><circle cx="18.5" cy="18.5" r="2.5" />
                   </svg>
                 </div>
@@ -177,7 +177,7 @@ export default function CanvasPrintsPage() {
             ].map((m) => (
               <div key={m.title} className={`rounded-2xl p-5 border border-stone-100 dark:border-stone-700/40 bg-white dark:bg-[#1a1a20] shadow-sm card-lift ${"badge" in m && m.badge ? "gradient-border" : ""}`}>
                 {"badge" in m && m.badge && (
-                  <span className="inline-block text-[10px] font-bold text-white px-2.5 py-1 rounded-full mb-2" style={{ background: "linear-gradient(90deg,#E8632A,#D41B6B)" }}>{m.badge}</span>
+                  <span className="inline-block text-[10px] font-bold text-stone-200 px-2.5 py-1 rounded-full mb-2" style={{ background: "linear-gradient(90deg,#E8632A,#D41B6B)" }}>{m.badge}</span>
                 )}
                 <div className="flex items-center justify-between mb-1">
                   <h3 className="text-base font-bold text-[#1A1A1E] dark:text-stone-100">{m.title}</h3>
