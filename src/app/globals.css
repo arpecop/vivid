@@ -1,6 +1,6 @@
 @import "tailwindcss";
 
-@variant dark (&:where(.dark, .dark *));
+@variant dark (html.dark &);
 
 @theme {
   --color-brand-blue:   #1B3A8C;
@@ -51,7 +51,7 @@ h1,h2,h3,h4 { font-family: var(--font-heading); }
               linear-gradient(135deg, #1B3A8C, #7B2D8E, #D41B6B) border-box;
   border: 2px solid transparent;
 }
-.dark .gradient-border {
+html.dark .gradient-border {
   background: linear-gradient(#1a1a20, #1a1a20) padding-box,
               linear-gradient(135deg, #1B3A8C, #7B2D8E, #D41B6B) border-box;
 }
@@ -70,11 +70,11 @@ h1,h2,h3,h4 { font-family: var(--font-heading); }
 
 /* Reviews section background */
 .reviews-section { background: linear-gradient(180deg,#FBFAF7 0%,#F5F0FF 50%,#FFF0F6 100%); }
-.dark .reviews-section { background: linear-gradient(180deg,#0F0F12 0%,#12101a 50%,#130f12 100%); }
+html.dark .reviews-section { background: linear-gradient(180deg,#0F0F12 0%,#12101a 50%,#130f12 100%); }
 
 /* EU map */
 .eu-country   { fill: #E8E6F0; stroke: white; stroke-width: 1.5; }
-.dark .eu-country { fill: #2a2a35; stroke: #1a1a24; }
+html.dark .eu-country { fill: #2a2a35; stroke: #1a1a24; }
 .eu-home      { fill: url(#homeGrad); }
 .eu-route     { stroke: #7B2D8E; stroke-width: 1.5; stroke-dasharray: 6 4; opacity: 0.55; }
 .eu-pin       { fill: #D41B6B; }

@@ -1,15 +1,28 @@
 "use client";
-import { useTheme } from "./ThemeProvider";
+import { useEffect, useState } from "react";
 
 export default function ThemeToggle() {
-  const { theme, toggle } = useTheme();
+  const [dark, setDark] = useState(true);
+
+  useEffect(() => {
+    setDark(document.documentElement.classList.contains("dark"));
+  }, []);
+
+  function toggle() {
+    const next = !dark;
+    setDark(next);
+    localStorage.setItem("theme", next ? "dark" : "light");
+    document.documentElement.classList.toggle("dark", next);
+  }
+
   return (
     <button
       onClick={toggle}
       className="flex items-center justify-center w-9 h-9 rounded-full hover:bg-stone-100 dark:hover:bg-stone-800 transition-colors"
-      aria-label={theme === "dark" ? "Switch to light mode" : "Switch to dark mode"}
+      aria-label={dark ? "Switch to light mode" : "Switch to dark mode"}
+      suppressHydrationWarning
     >
-      {theme === "dark" ? (
+      {dark ? (
         <svg className="w-5 h-5 text-yellow-400" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round">
           <circle cx="12" cy="12" r="5" />
           <line x1="12" y1="1" x2="12" y2="3" />
@@ -22,7 +35,7 @@ export default function ThemeToggle() {
           <line x1="18.36" y1="5.64" x2="19.78" y2="4.22" />
         </svg>
       ) : (
-        <svg className="w-5 h-5 text-stone-600" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round">
+        <svg className="w-5 h-5 text-stone-500" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round">
           <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z" />
         </svg>
       )}
